@@ -26,8 +26,7 @@ function moveSlidesRight() {
 
   slidesArray.forEach(function(el, i){
     el.style.left = width + "px";
-    //width += lengthOfSlide; //move slide the opposite direction
-    width -= lengthOfSlide;
+    width += lengthOfSlide;
   });
   addClone();
 }
@@ -40,8 +39,7 @@ function moveSlidesLeft() {
   var maxWidth = (slidesArray.length - 1) * lengthOfSlide;
 
   slidesArray.forEach(function(el, i){
-    //maxWidth -= lengthOfSlide; //move slide the opposite direction
-    maxWidth += lengthOfSlide;
+    maxWidth -= lengthOfSlide;
     el.style.left = maxWidth + "px";
   });
 }
