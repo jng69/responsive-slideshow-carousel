@@ -26,7 +26,8 @@ function moveSlidesRight() {
 
   slidesArray.forEach(function(el, i){
     el.style.left = width + "px";
-    width += lengthOfSlide;
+    //width += lengthOfSlide; //move slide the opposite direction
+    width -= lengthOfSlide;
   });
   addClone();
 }
@@ -39,7 +40,8 @@ function moveSlidesLeft() {
   var maxWidth = (slidesArray.length - 1) * lengthOfSlide;
 
   slidesArray.forEach(function(el, i){
-    maxWidth -= lengthOfSlide;
+    //maxWidth -= lengthOfSlide; //move slide the opposite direction
+    maxWidth += lengthOfSlide;
     el.style.left = maxWidth + "px";
   });
 }
@@ -165,9 +167,11 @@ function slightMoveSlides(newX) {
 function moveBasedOnMouse(e) { 
   var finalX = e.clientX;
   if ( initialX - finalX > 0) {
-    moveRight();
-  } else if ( initialX - finalX < 0 ) {
+    //moveRight(); //change to move the opposite direction
     moveLeft();
+  } else if ( initialX - finalX < 0 ) {
+    //moveLeft(); //change to move the opposite direction
+    moveRight();
   }
   document.removeEventListener('mouseup', moveBasedOnMouse);
   carouselContent.removeEventListener('mousemove', slightMove);
