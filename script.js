@@ -158,18 +158,16 @@ function slightMoveSlides(newX) {
   var slidesArray = Array.prototype.slice.call(slides);
   slidesArray.forEach(function(el, i){
     var oldLeft = initialPos[i];
-    el.style.left = (oldLeft + newX) + "px";
+    el.style.left = (oldLeft - newX) + "px"; //changed + to - in order to slide move in the opposite direction
   });
 }
 
 function moveBasedOnMouse(e) { 
   var finalX = e.clientX;
-  if ( initialX - finalX > 0) {
-    //moveRight(); //change to move the opposite direction
-    moveLeft();
-  } else if ( initialX - finalX < 0 ) {
-    //moveLeft(); //change to move the opposite direction
+  if ( initialX - finalX < 0) {
     moveRight();
+  } else if ( initialX - finalX > 0 ) {
+    moveLeft();
   }
   document.removeEventListener('mouseup', moveBasedOnMouse);
   carouselContent.removeEventListener('mousemove', slightMove);
